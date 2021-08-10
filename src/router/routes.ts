@@ -4,32 +4,31 @@ const routes: RouteRecordRaw[] = [
     {
         path: '/:catchAll(.*)',
         redirect: {
-            name: 'page1'
+            name: 'login'
         }
     },
     {
-        path: '/page1',
-        name: 'page1',
-        meta: {
-            title: 'page1'
-        },
-        component: () => import('../views/page1.vue')
+        path: '/login',
+        name: 'login',
+        component: () => import('../views/login.vue')
     },
     {
-        path: '/page2',
-        name: 'page2',
-        meta: {
-            title: 'page2'
-        },
-        component: () => import('../views/page2.vue')
-    },
-    {
-        path: '/page3',
-        name: 'page3',
-        meta: {
-            title: 'page3'
-        },
-        component: () => import('../views/page3.vue')
+        path: '/main',
+        name: 'main',
+        component: () => import('../views/main.vue'),
+        redirect: '/main/home',
+        children: [
+            {
+                path: 'home',
+                name: 'home',
+                component: () => import('../views/home.vue')
+            },
+            {
+                path: 'feature1',
+                name: 'feature1',
+                component: () => import('../views/feature1.vue')
+            }
+        ]
     }
 ];
 

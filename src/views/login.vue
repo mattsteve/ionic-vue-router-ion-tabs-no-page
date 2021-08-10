@@ -1,9 +1,9 @@
 <template>
     <ion-page>
         <ion-content style="--background: transparent;">
-            <p>This is page 1</p>
+            <p>This is the login page</p>
             <ion-button color="primary" expand="block" @click="goNextPage()">
-                Go to next page
+                Login
             </ion-button>
         </ion-content>
     </ion-page>
@@ -14,11 +14,11 @@ import { Options, Vue } from 'vue-property-decorator';
 import router from '@/router';
 
 @Options({
-    name: 'page1-view'
+    name: 'login-view'
 })
 export default class RootView extends Vue {
     goNextPage() {
-        router.push({ name: 'page2' });
+        router.replace({ name: 'main' });
     }
 }
 </script>
